@@ -1,0 +1,46 @@
+{
+    "interactionModel": {
+        "languageModel": {
+            "invocationName": "stupid question",
+            "intents": [
+                {
+                    "name": "AMAZON.FallbackIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.CancelIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.HelpIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.StopIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AskStupidQuestion",
+                    "slots": [],
+                    "samples": [
+                        "Throw me a stupid question",
+                        "Shoot a stupid question",
+                        "Ask stupid questions",
+                        "Ask me some stupid questions",
+                        "Ask me some non sense",
+                        "Ask me a stupid question"
+                    ]
+                },
+                {
+                    "name": "AMAZON.YesIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.NoIntent",
+                    "samples": []
+                }
+            ],
+            "types": []
+        }
+    }
+}
