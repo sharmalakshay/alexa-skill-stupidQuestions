@@ -1,7 +1,7 @@
 {
     "interactionModel": {
         "languageModel": {
-            "invocationName": "stupid question",
+            "invocationName": "me a stupid question",
             "intents": [
                 {
                     "name": "AMAZON.FallbackIntent",
@@ -23,8 +23,9 @@
                     "name": "AskStupidQuestion",
                     "slots": [],
                     "samples": [
-                        "Throw me a stupid question",
-                        "Shoot a stupid question",
+                        "One more stupid question",
+                        "Ask me one more stupid question",
+                        "Ask a stupid question",
                         "Ask stupid questions",
                         "Ask me some stupid questions",
                         "Ask me some non sense",
