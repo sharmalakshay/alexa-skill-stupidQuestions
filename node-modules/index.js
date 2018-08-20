@@ -15,15 +15,15 @@ const STOP_MESSAGE = 'Cool!';
 
 const data = [
     'Why do people not believe it when someone say earth is flat?',
-    'Why is it that there is no "W" in <emphasis level="strong">"one"</emphasis>,<break time="0.5s"/> but there\'s a "W" in <emphasis level="strong">"Two"</emphasis><break time="0.5s"/><prosody rate="x-slow"> and </prosody><break time="0.05s"/> we don\'t use it?',
-    '<prosody rate="slow">Can I trust you to be a real person?<break time="0.5s"/></prosody> You could be a fake bot on the internet. <break time="0.1s"/> <prosody rate="slow" volume="x-soft" pitch="low"><emphasis level="strong">And I have standards.</emphasis></prosody>'
+    'Why is it that there is no "W" in "one", but there\'s a "W" in "Two" and we don\'t use it?',
+    'Can I trust you to be a real person? You could be a fake bot on the internet. And I have standards.'
 ];
 
 const handlers = {
     'LaunchRequest': function () {
         this.emit('GetNewFactIntent');
     },
-    'GetNewFactIntent': function () {
+    'AskStupidQuestion': function () {
         const questionsArray = data;
         const questionsIndex = Math.floor(Math.random() * questionsArray.length);
         const randomQuestion = questionsArray[questionsIndex];
@@ -47,6 +47,17 @@ const handlers = {
     },
     'AMAZON.StopIntent': function () {
         this.response.speak(STOP_MESSAGE);
+        this.emit(':responseReady');
+    },
+    'AMAZON.FallbackIntent': function(){
+        const questionsArray = data;
+        const questionsIndex = Math.floor(Math.random() * questionsArray.length);
+        const randomQuestion = questionsArray[questionsIndex];
+        //const speechOutput = GET_QUESTION_MESSAGE + randomFact;
+        const speechOutput = randomQuestion;
+
+        this.response.cardRenderer(SKILL_NAME, randomQuestion);
+        this.response.speak(speechOutput);
         this.emit(':responseReady');
     },
 };
