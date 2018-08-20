@@ -21,7 +21,7 @@ const data = [
 
 const handlers = {
     'LaunchRequest': function () {
-        this.emit('GetNewFactIntent');
+        this.emit('AskStupidQuestion');
     },
     'AskStupidQuestion': function () {
         const questionsArray = data;
@@ -60,6 +60,9 @@ const handlers = {
         this.response.speak(speechOutput);
         this.emit(':responseReady');
     },
+    'SessionEndedRequest': function(){
+        this.emit('AMAZON.StopIntent');
+    }
 };
 
 exports.handler = function (event, context, callback) {
